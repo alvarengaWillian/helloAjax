@@ -1,0 +1,40 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package controller;
+
+import javax.inject.Named;
+import javax.enterprise.context.SessionScoped;
+import java.io.Serializable;
+
+/**
+ *
+ * @author willi
+ */
+@Named(value = "helloBean")
+@SessionScoped
+public class helloBean implements Serializable {
+    
+    private String name;
+    
+    public helloBean() {
+    }
+    
+    public void setName(String name){
+        this.name = name;
+    }
+    
+    public String getName() {
+        return name;
+    }
+    
+    public String getSayWelcome() {
+       if ("".equals(name) || name == null){
+           return "";
+       } else {
+           return "Ajax message : Welcome " + name;
+       }
+    }
+}
